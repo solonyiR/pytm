@@ -16,54 +16,34 @@ go_down_menu = ''' Chose an option:
  up - to go up
  down - to go down'''
 
-go_down_chose = ''' Chose an option:
- full - for full path
- short - for short path
- 0 - to go back'''
+menu_options = {
+    '1': functions.go_to_folder,
+    '2': functions.new_folder,
+    '3': functions.remove_folder,
+    '4': lambda: functions.openfile(safe_input('Give me a name: ')),
+    'exit': lambda: exit()
+ }
 
 
 def main():
     while True:
         functions.print_line("=")
+       
         print(' current folder is ' + functions.wim())
         print("-" * width)
         print(' files in curent folder is: ')
         print("-" * width)
+       
         functions.list_files()
+        
         print("=" * width)
         print(menu)
         print("-" * width)
-        option = input(' print choosen option: ').strip()
+      
+        option = functions.safe_input_menu("choose an option: ")
 
-        if option == '1':
-            print(go_down_menu)
-            option_1 = input('Your option: ').strip()
-            if option_1 == 'up':
-                functions.go_up()
-            elif option_1 == 'down':
-                print(go_down_chose)
-                option_2 = input('Your option: ').strip()
-
-                if option_2 == 'full':
-                    path = input(' Give me a path: ').strip()
-                    functions.change(path)
-                if option_2 == 'short':
-                    path = input(' Give me a name: ').strip()
-                    functions.change_short(path)
-                if option_2 == '0':
-                    continue
-                else:
-                    print('Error: invalid option')
-        elif option == '2':
-            functions.new_folder()
-        elif option == '3':
-            functions.remove_folder()
-        elif option == '4':
-            file_name = input('Give me a name: ')
-            functions.openfile(file_name)
-        elif option == 'exit':
-            print(' Exiting program.')
-            break
+        if option in menu_options:
+           menu_options[option]()
         else:
             print(' Error: invalid option')
 

@@ -8,6 +8,12 @@ import functions
 
 width = shutil.get_terminal_size().columns
 
+def safe_input_menu(prompt):
+    while True:
+        value = input(prompt).strip()
+        if value:
+            return value
+        print("❌ Empty input. Try again")
 
 def wim():
     cwd = os.getcwd()
@@ -40,6 +46,28 @@ def go_up():
     print("=" * width)
     os.chdir('../')
     wim()
+    
+
+def go_to_folder():
+    go_to_menu = ''' Chose an option:
+     up - to go up for one folder
+     full - for full path
+     short - for short path
+     0 - to go back'''
+
+    print("=" * width)
+    print(go_to_menu)
+    print("-" * width)
+    
+    option = input("Choose an option: ")
+    option_list = {
+        "up": lambda: go_up(),
+        "full": lambda: change(input("Enter full path to go: ")),
+        "short": lambda: change_short(input("Enter full path to go: ")),
+    }
+
+
+
 
 def list_files():
     files = os.listdir()
