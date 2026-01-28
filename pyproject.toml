@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytm"
+version = "0.1.0"
+description = "Simple cross-platform terminal file manager"
+readme = "README.md"
+authors = [
+    { name = "Solonyi" }
+]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "colorama>=0.4.6"
+]
+
+[project.scripts]
+pytm = "pytm.main:main"
+
+[project.urls]
+"Homepage" = "https://github.com/solonyiR/pytm"
+"Bug Tracker" = "https://github.com/solonyiR/pytm/issues"
