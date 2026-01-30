@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include requirements.txt
+
+recursive-include pytm *.py
+recursive-exclude * *.png *.jpg *.gif
+recursive-exclude docs *
+recursive-exclude examples *
+recursive-exclude tests *

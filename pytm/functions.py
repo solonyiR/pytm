@@ -2,7 +2,7 @@ import os
 import shutil
 import subprocess
 import platform
-import print_spec
+from pytm import print_spec
 from colorama import Fore, Style, init
 
 init(autoreset=True)
