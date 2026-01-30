@@ -40,6 +40,6 @@ pytm
 Multi language support in developing. Will be updated.
 
 Usage: after start in every point u will see a menu or instructions what to do.
-![Image](./pytm/docs/screenshots/startup_menu.png)
+![Image](./docs/screenshots/startup_menu.png)
 
 
